@@ -1,1 +1,3 @@
-mi_env/
+/mi_env/*
+/migrations/*
+/app/__pycache__/*
