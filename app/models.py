@@ -83,8 +83,8 @@ class Cita (db.Model):
     #realizar un "for"
     for ci in Cita.query.all():
         print("fecha:" + str(ci.fecha))
-        print("fecha:" + str(ci.fecha)+"|Paciente:" + str(ci.paciente.numero_identificacion) + ",paciente nombre:" + ci.paciente.nombre + " " + ci.paciente.apellido) 
-        print("fecha:" + str(ci.fecha)+"|Paciente:" + str(ci.paciente.numero_identificacion) + ",paciente nombre:" + ci.paciente.nombre + " " + ci.paciente.apellido + "valor cita:" + str(ci.valor))
+        print("fecha:" + str(ci.fecha)+"|Paciente:" + str(ci.paciente.numero_identificacion) + "/paciente nombre: " + ci.paciente.nombre + " " + ci.paciente.apellido) 
+        print("fecha:" + str(ci.fecha)+"|Paciente:" + str(ci.paciente.numero_identificacion) + "/paciente nombre: " + ci.paciente.nombre + " " + ci.paciente.apellido + "/valor cita: " + str(ci.valor))
         #RESULTADO
         fecha:2024-07-14 12:45:00|Paciente:187812,paciente nombre:Natalia Jimenezvalor cita:10
         fecha:2024-11-02 07:00:00|Paciente:982398,paciente nombre:Pedro Guevaravalor cita:20
