@@ -63,11 +63,12 @@ class Cita (db.Model):
     con1 = Consultorio(numero = 1) 
     con2 = Consultorio(numero = 2)
     con3 = Consultorio(numero = 3)
-    cit1 = Cita(fecha = fecha1, paciente = pac1, medico = med3, consultorio = con2, valor = 10) 
-    cit2 = Cita(fecha = fecha3, paciente = pac3, medico = med2, consultorio = con1, valor = 20) 
     fecha1 = datetime(2024,7,14,12,45,0)
     fecha2 = datetime(2024,9,9,16,15,0)
     fecha3 = datetime(2024,11,2,7,0,0) 
+    cit1 = Cita(fecha = fecha1, paciente = pac1, medico = med3, consultorio = con2, valor = 10) 
+    cit2 = Cita(fecha = fecha3, paciente = pac3, medico = med2, consultorio = con1, valor = 20) 
+    
     db.session.add()
     db.session.commit()
     
