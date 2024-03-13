@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar medico</title>
+</head>
+<body>
+    <h1>Actualizar medico</h1>
+    <form method="post" action="/medicos/update/{{medico_update.id}}">
+        <p>Nombre: <input type="text" name="nombre" value="{{medico_update.nombre}}"></p>
+        <p>Apellido: <input type="text" name="apellido" value="{{medico_update.apellido}}"></p>
+        <p>Tipo identificacion: 
+            <select name="ti" id="">
+                <option
+                    {% if medico_update.tipo_identificacion == "Seleccionar"%}
+                        selected
+                    {% endif %}
+                >Seleccionar</option>
+                <option
+                    {% if medico_update.tipo_identificacion == "TI"%}
+                        selected
+                    {% endif %}
+                >TI</option>
+                <option
+                    {% if medico_update.tipo_identificacion == "CC"%}
+                        selected    
+                    {% endif %}
+                >CC</option>
+            </select>
+        </p>
+        <p>Numero Identidad: <input type="text" name="ni" value="{{medico_update.numero_identificacion}}"></p>
+        <p>Registro medico: <input type="text" name="rm" value="{{medico_update.registro_medico}}"></p>
+        <p>Especialidad: 
+            <select name="es">
+                {% for especialidad in especialidades %}
+                    <option
+                        {% if medico_update.especialidad == especialidad %} 
+                            selected
+                        {% endif %}
+                    >{{especialidad}}</option>        
+                {% endfor %}
+            </select></p>
+        <p><button type="submit">Actualizar</button></p>
+    </form>
+</body>
+</html>

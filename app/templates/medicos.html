@@ -9,6 +9,16 @@
 <body>
     <!--Medicos-->
     <h1>Lista Medicos</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
     <table class="table table-dark">
         <thead>
             <tr>
@@ -19,6 +29,8 @@
                 <th>Registro medico</th>
                 <th>Especialidad</th>
                 <th>Ver detalles</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +44,12 @@
                     <td>{{medico.especialidad}}</td>
                     <td>
                         <a href="/medicos/{{medico.id}}">Ver detalles</a>
+                    </td>
+                    <td>
+                        <a href="/medicos/update/{{medico.id}}">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="/medicos/delete/{{medico.id}}">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %}

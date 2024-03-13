@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
     <title>Formulario paciente</title>
 </head>
 <body>
     <h1>Nuevo paciente</h1>
-    <form method="post" action="">
-        <p>Nombre: <input type="text" name="nombre" ></p>
-        <p>Apellido: <input type="text" name="apellido"></p>
-        <p>Tipo identificacion: 
-            <select name="ti" id="">
-                <option>TI</option>
-                <option>CC</option>
-            </select>
-        </p>
-        <p>Numero Identidad: <input type="text" name="ni"></p>
-        <p>Altura: <input type="text" name="al"></p>
-        <p>Tipo sangre: 
-            <select name="ts">
-                {% for tipo_sangre in tipo_sangre %}
-                    <option>{{tipo_sangre}}</option>        
-                {% endfor %}
-            </select></p>
-        <p><button type="submit">Guardar</button></p>
-    </form>
+        <form method="post" action="">
+            <p>Nombre: <input type="text" name="nombre" class="form-control" placeholder="Nombre..."></p>
+            <p>Apellido: <input type="text" name="apellido" class="form-control" placeholder="Apellido..."></p>
+            <p>Tipo identificacion: 
+                <select name="ti" id="">
+                    <option>TI</option>
+                    <option>CC</option>
+                </select>
+            </p>
+            <p>Numero Identidad: <input type="text" name="ni"></p>
+            <p>Altura: <input type="text" name="al" class="form-control" placeholder="Cm"></p>
+            <p>Tipo sangre: 
+                <select name="ts">
+                    {% for tipo_sangre in tipo_sangre %}
+                        <option>{{tipo_sangre}}</option>        
+                    {% endfor %}
+                </select></p>
+            <p><button type="submit">Guardar</button></p>
+        </form>
 </body>
 </html>

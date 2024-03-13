@@ -1,6 +1,6 @@
 from . import app, db
 from .models import Medico, Paciente, Consultorio, Cita
-from flask import render_template, request
+from flask import render_template, request, flash, redirect
 from datetime import datetime
 
 #definir ruta para listado de medicos
@@ -102,7 +102,8 @@ def create_medico():
         #añadirlo a la sesion sqlalchemy
         db.session.add(new_medico)
         db.session.commit()
-        return "Medico registrado"
+        flash("Medico registrado")
+        return redirect("/medicos")
 
 #ruta para pacientes
 @app.route("/pacientes/create", methods = ["GET","POST"])
@@ -152,7 +153,6 @@ def create_consultorios():
         return render_template("consultorio_form.html",
                             numeros = numeros)
 
-
     elif(request.method == "POST"):
         new_consultorio = Consultorio(numero = request.form["nu"])
         db.session.add(new_consultorio)
@@ -183,3 +183,44 @@ def create_citas():
         db.session.add(new_cita)
         db.session.commit()
         return "Cita registrado"
+
+
+
+@app.route("/medicos/update/<int:id>", methods = ["POST", "GET"])
+def update_medico(id):
+    especialidades = [
+            "Cardiologia",
+            "Optometria",
+            "Radiologia",
+            "Pediatria",
+            "Odontologia"
+        ]
+    medico_update = Medico.query.get(id)
+    if(request.method == "GET"):
+        return render_template("medico_update.html",
+                                medico_update = medico_update,
+                                especialidades = especialidades)
+    elif(request.method == "POST"):
+        #return "Cambios realizados"
+        #return "id a actualizar: " + str(id)
+        #return medico_update.nombre
+        #ACTUALIZAR MEDICO CON DATOS DE FORMULARIO
+        medico_update.nombre = request.form["nombre"]
+        medico_update.apellido = request.form["apellido"]
+        medico_update.tipo_identificacion = request.form["ti"]
+        medico_update.numero_identificacion = request.form["ni"]
+        medico_update.registro_medico = request.form["rm"]
+        medico_update.especialidad = request.form["es"]
+        db.session.commit()
+        return "Medico Actualizado"
+
+
+
+@app.route("/medicos/delete/<int:id>")
+def delete_medico(id):
+    medico_delete = Medico.query.get(id)
+    db.session.delete(medico_delete)
+    db.session.commit()
+    return redirect("/medicos")
+
+
