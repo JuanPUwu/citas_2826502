@@ -17,6 +17,7 @@
                 <th>Medico</th>
                 <th>Consultorio</th>
                 <th>Valor</th>
+                <th>Ver detalles</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                     <td>{{cita.medico_id}}</td>
                     <td>{{cita.consultorio_id}}</td>
                     <td>{{cita.valor}}</td>
+                    <td><a href="/citas/{{cita.id}}">Ver detalles</a></td>
                 </tr>
             {% endfor %}
         </tbody>

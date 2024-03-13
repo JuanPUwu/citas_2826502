@@ -8,10 +8,10 @@
 </head>
 <body>
     <!--Pacientes-->
-    <h1>Lista Pacientes</h1>
+    <h1 class="text-center">Lista Pacientes</h1>
     <table class="table table-dark">
         <thead>
-            <tr>
+            <tr></tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Tipo identificacion</th>
@@ -30,7 +30,7 @@
                     <td>{{paciente.numero_identificacion}}</td>
                     <td>{{paciente.altura}}</td>
                     <td>{{paciente.tipo_sangre}}</td>
-                    <th><a href="/pacientes/{{paciente.id}}">Ver detalles</a></th>
+                    <td><a href="/pacientes/{{paciente.id}}" class="badge badge-primary">Ver detalles</a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario citas</title>
+</head>
+<body>
+    <h1>Nueva cita</h1>
+    <form method="post" action="">
+        <p>Fecha: 
+            <select name="fe">
+                {% for cita in citas %}
+                    <option>{{cita}}</option>        
+                {% endfor %}
+            </select>
+        </p>
+        <p>Paciente id: 
+            <select name="pi">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </p>
+        <p>Medico id: 
+            <select name="mi">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+        </p>
+        <p>Consultorio id: 
+            <select name="ci">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </p>
+        <p>Valor: 
+            <select name="va">
+                <option>10</option>
+                <option>20</option>
+            </select>
+        </p>
+        <p><button type="submit">Guardar</button></p>
+    </form>
+</body>
+</html>
