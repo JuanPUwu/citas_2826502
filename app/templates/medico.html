@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medico</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_list.css')}}">
 </head>
 <body>
-    <h1>Informacion medico</h1>
-    <ul>
-        <li>Nombre: {{med.nombre}}</li>
-        <li>Apellido: {{med.apellido}}</li>
-        <li>Tipo identificacion: {{med.tipo_identificacion}}</li>
-        <li>Numero identificacion: {{med.numero_identificacion}}</li>
-        <li>Registro medico: {{med.registro_medico}}</li>
-        <li>Especialidad: {{med.especialidad}}</li>
+<div class="contorno">
+    <h1 class="titulo">Informacion Medico</h1>
+    <ul class="item_lista">
+        <li>
+            <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
+            <strong>
+                Nombre: 
+            </strong>
+            {{med.nombre}}
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='Apellido.png')}}" alt="" width="50px" height="50px" class="apellido">
+            <strong>
+                Apellido: 
+            </strong>
+            {{med.apellido}}
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='Identificacion.png')}}" alt="" width="50px" height="50px" class="identificacion">
+            <strong>
+                Tipo Identificacion: 
+            </strong>
+            {{med.tipo_identificacion}}</li>
+        <li>
+            <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
+            <strong>
+                Numero Identificacion: 
+            </strong>
+            {{med.numero_identificacion}}</li>
+        <li>
+            <img src="{{url_for('static',filename='Registro.png')}}" alt="" width="50px" height="50px" class="registro">
+            <strong>
+                Registro Medico: 
+            </strong>
+            {{med.registro_medico}}</li>
+        <li>
+            <img src="{{url_for('static',filename='Especialidad.png')}}" alt="" width="50px" height="50px" class="especialidad">
+            <strong>
+                Especialidad: 
+            </strong>
+            {{med.especialidad}}</li>
     </ul>
+</div>
 </body>
 </html>

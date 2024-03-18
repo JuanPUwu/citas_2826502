@@ -1,6 +1,6 @@
 from . import app, db
 from .models import Medico, Paciente, Consultorio, Cita
-from flask import render_template, request, flash, redirect
+from flask import render_template, request, flash, redirect, url_for, Flask
 from datetime import datetime
 
 #definir ruta para listado de medicos
@@ -31,10 +31,11 @@ def get_all_citas():
     return render_template("citas.html",
                            citas = citas)
 
-
-
-
-
+#
+#
+#
+#
+#
 
 #crear ruta para traer medicos con metodo "get"
 @app.route("/medicos/<int:id>")
@@ -61,17 +62,20 @@ def get_consultorio_by_id(id):
     return render_template("consultorio.html",
                            con = consultorio)
 
-
+#crear ruta para traer cita con metodo "get"
 @app.route("/citas/<int:id>")
 def get_cita_by_id(id):
     cita = Cita.query.get(id)
     return render_template("cita.html",
                            cit = cita)
-    
-    
-    
-    
-#crear una ruta para crear nuevo medico
+
+#
+#
+#
+#
+#
+
+#CREAR RUTA PARA CREAR NUEVO MEDICO
 @app.route("/medicos/create", methods = ["GET","POST"])
 def create_medico():
     #mostrar el formulario en metodo "get"
@@ -102,10 +106,10 @@ def create_medico():
         #añadirlo a la sesion sqlalchemy
         db.session.add(new_medico)
         db.session.commit()
-        flash("Medico registrado")
         return redirect("/medicos")
 
-#ruta para pacientes
+
+##CREAR RUTA PARA CREAR NUEVO PACIENTE
 @app.route("/pacientes/create", methods = ["GET","POST"])
 def create_pacientes():
     if(request.method == "GET" ):
@@ -121,7 +125,6 @@ def create_pacientes():
         ]
         return render_template("paciente_form.html",
                             tipo_sangre = tipo_sangre)
-
     elif(request.method == "POST"):
         new_paciente = Paciente(nombre = request.form["nombre"],
                             apellido = request.form["apellido"],
@@ -135,7 +138,7 @@ def create_pacientes():
         return "Paciente registrado"
 
 
-#crear una ruta para crear un nuevo consultorio
+#CREAR RUTA PARA CREAR NUEVO CONSULTORIO
 @app.route("/consultorios/create", methods = ["GET","POST"])
 def create_consultorios():
     if(request.method == "GET" ):
@@ -152,7 +155,6 @@ def create_consultorios():
         ]
         return render_template("consultorio_form.html",
                             numeros = numeros)
-
     elif(request.method == "POST"):
         new_consultorio = Consultorio(numero = request.form["nu"])
         db.session.add(new_consultorio)
@@ -160,7 +162,7 @@ def create_consultorios():
         return "Consultorio registrado"
 
 
-#crear una ruta para crear un nuevo cita
+#CREAR RUTA PARA CREAR NUEVA CITA
 @app.route("/citas/create", methods = ["GET","POST"])
 def create_citas():
     if(request.method == "GET" ):
@@ -173,7 +175,6 @@ def create_citas():
         ]
         return render_template("citas_form.html",
                             citas = fecha)
-
     elif(request.method == "POST"):
         new_cita = Cita(fecha = request.form["fe"],
                         paciente_id = request.form["pi"],
@@ -182,10 +183,15 @@ def create_citas():
                         valor = request.form["va"])
         db.session.add(new_cita)
         db.session.commit()
-        return "Cita registrado"
+        return "Cita registrada"
 
+#
+#
+#
+#
+#
 
-
+#ACTUALIZAR DATOS MEDICOS
 @app.route("/medicos/update/<int:id>", methods = ["POST", "GET"])
 def update_medico(id):
     especialidades = [
@@ -201,9 +207,6 @@ def update_medico(id):
                                 medico_update = medico_update,
                                 especialidades = especialidades)
     elif(request.method == "POST"):
-        #return "Cambios realizados"
-        #return "id a actualizar: " + str(id)
-        #return medico_update.nombre
         #ACTUALIZAR MEDICO CON DATOS DE FORMULARIO
         medico_update.nombre = request.form["nombre"]
         medico_update.apellido = request.form["apellido"]
@@ -212,9 +215,7 @@ def update_medico(id):
         medico_update.registro_medico = request.form["rm"]
         medico_update.especialidad = request.form["es"]
         db.session.commit()
-        return "Medico Actualizado"
-
-
+        return redirect("/medicos")
 
 @app.route("/medicos/delete/<int:id>")
 def delete_medico(id):
@@ -224,3 +225,4 @@ def delete_medico(id):
     return redirect("/medicos")
 
 
+#ACTUALIZAR DATOS CONSULTORIO

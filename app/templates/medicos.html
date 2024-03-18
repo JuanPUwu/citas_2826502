@@ -4,57 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista medicos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_table.css')}}">
 </head>
-<body>
-    <!--Medicos-->
-    <h1>Lista Medicos</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class=flashes>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+<body> <!--Medicos-->
+<div class="contorno">
+    <div class="titulo">
+        <h1 class="text_titulo">Lista Medicos</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+    </div>
 
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Tipo identificacion</th>
-                <th>Numero identificacion</th>
-                <th>Registro medico</th>
-                <th>Especialidad</th>
-                <th>Ver detalles</th>
-                <th>Actualizar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for medico in medicos %}
+    <div class="contenido">
+        <table class="tabla">
+            <thead>
                 <tr>
-                    <td>{{medico.nombre}}</td>
-                    <td>{{medico.apellido}}</td>
-                    <td>{{medico.tipo_identificacion}}</td>
-                    <td>{{medico.numero_identificacion}}</td>
-                    <td>{{medico.registro_medico}}</td>
-                    <td>{{medico.especialidad}}</td>
-                    <td>
-                        <a href="/medicos/{{medico.id}}">Ver detalles</a>
-                    </td>
-                    <td>
-                        <a href="/medicos/update/{{medico.id}}">Actualizar</a>
-                    </td>
-                    <td>
-                        <a href="/medicos/delete/{{medico.id}}">Eliminar</a>
-                    </td>
+                    <th class="encabezado">Nombre</th>
+                    <th class="encabezado">Apellidos</th>
+                    <th class="encabezado">Tipo Identificacion</th>
+                    <th class="encabezado">Numero Identificacion</th>
+                    <th class="encabezado">Registro Medico</th>
+                    <th class="encabezado">Especialidad</th>
+                    <th class="encabezado">Ver Detalles</th>
+                    <th class="encabezado">Actualizar</th>
+                    <th class="encabezado">Eliminar</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot></tfoot>
-    </table>
+            </thead>
+
+            <tbody>
+                {% for medico in medicos %}
+                    <tr>
+                        <td class="con_tabla">{{medico.nombre}}</td>
+                        <td class="con_tabla">{{medico.apellido}}</td>
+                        <td class="con_tabla">{{medico.tipo_identificacion}}</td>
+                        <td class="con_tabla">{{medico.numero_identificacion}}</td>
+                        <td class="con_tabla">{{medico.registro_medico}}</td>
+                        <td class="con_tabla">{{medico.especialidad}}</td>
+                        <td class="con_tabla">
+                            <a href="/medicos/{{medico.id}}" class="link">
+                                <img src="{{url_for('static',filename='Detalles.png')}}" alt="" width="25px" height="20px" class="detalles">
+                                Ver Detalles
+                            </a>
+                        </td>
+                        <td class="con_tabla">
+                            <a href="/medicos/update/{{medico.id}}" class="link">
+                                <img src="{{url_for('static',filename='Actualizar.png')}}" alt="" width="20px" height="20px" class="actualizar">
+                                Actualizar
+                            </a>
+                        </td>
+                        <td class="con_tabla">
+                            <a href="/medicos/delete/{{medico.id}}" class="link">
+                                <img src="{{url_for('static',filename='Basura.png')}}" alt="" width="20px" height="20px" class="basura">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <td class="con_tabla" colspan="9">
+                            <a href="{{ url_for('create_medico') }}" class="link"><!--VINCULAR MEDIANTE URL SIN ROUTE-->
+                                <img src="{{url_for('static',filename='Mas.png')}}" alt="" width="20px" height="20px" class="mas">
+                                Crear Nuevo
+                            </a>
+                        </td>
+                    </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,91 @@
+
+/*LINK*/
+/*    {{url_for('static',filename='css/style_table.css')}}    */
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
+
+body{
+    background-color: #E7E7E7;
+    font-family: "Mallanna", sans-serif;
+    font-size: 18px;
+    }
+
+.contorno{
+    background-color: #FFFFFF;
+    display: block;
+    top: 20%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/   
+    left: 12%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 12%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    position: absolute;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 10px;
+    box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
+}
+
+.titulo{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    border-bottom: 1.5px solid rgb(0, 0, 0, 0.1);
+    font-size: 25px;
+}
+
+.contenido{
+    display: flex;
+    position: relative;
+}
+
+.tabla{
+    width: 100%;
+    border-collapse: collapse;/*HACE QUE UN BORDE DE CELDA NO SE CORTE Y SIGA DERECHO*/
+}
+
+.encabezado{
+    text-align: left;
+    border-bottom: 1.5px solid rgb(0, 0, 0, 0.1);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.con_tabla{
+    text-align: left;
+    border-bottom: 1.5px solid rgb(0, 0, 0, 0.1);
+    padding: 10px;
+    position: relative;
+}
+
+.link {
+    display: inline-block;
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+    transform-origin: initial;
+    text-decoration: none;
+    color: rgb(69, 174, 255);
+}
+
+.link:hover {
+    transform: scale(1.08);
+    text-decoration: underline;
+    color: rgb(0, 119, 255);
+}
+
+img[class="basura"]{
+    vertical-align: -10%;
+    padding-right: 2px;
+}
+
+img[class="actualizar"]{
+    vertical-align: -12%;
+    padding-right: 2px;
+}
+
+img[class="detalles"]{
+    vertical-align: -14%;
+    padding-right: 1px;
+}
+
+img[class="mas"]{
+    vertical-align: -14%;
+    padding-right: 5px;
+    padding-left: 4px;
+}

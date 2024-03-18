@@ -1,31 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario medico</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_create.css')}}">
 </head>
 <body>
-    <h1>Nuevo medico</h1>
+<div class="contorno">
+    <h1 class="titulo">Nuevo medico</h1>
     <form method="post" action="">
-        <p>Nombre: <input type="text" name="nombre"></p>
-        <p>Apellido: <input type="text" name="apellido"></p>
-        <p>Tipo identificacion: 
-        <select name="ti" id="">
-            <option>Seleccionar</option>
-            <option>TI</option>
-            <option>CC</option>
-        </select>
+        <p>
+            <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
+            Nombre: <input type="text" name="nombre">
         </p>
-        <p>Numero Identidad: <input type="text" name="ni"></p>
-        <p>Registro medico: <input type="text" name="rm"></p>
-        <p>Especialidad: 
-            <select name="es">
-                {% for especialidad in especialidades %}
-                    <option>{{especialidad}}</option>        
-                {% endfor %}
-            </select></p>
-        <p><button type="submit">Guardar</button></p>
+        <p>
+            <img src="{{url_for('static',filename='Apellido.png')}}" alt="" width="50px" height="50px" class="apellido">
+            Apellido: <input type="text" name="apellido">
+        </p>
+        <p>
+            <div class="custom_select">
+                <img src="{{url_for('static',filename='Identificacion.png')}}" alt="" width="50px" height="50px" class="identificacion">
+                <strong>Tipo identificacion: </strong>
+                <select name="ti" id="">
+                    <option>Seleccionar</option>
+                    <option>TI</option>
+                    <option>CC</option>
+                </select>
+                <span class="flecha"></span>
+            </div>
+        </p>
+        <p>
+            <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
+            Numero Identidad: <input type="text" name="ni">
+        </p>
+        <p>
+            <img src="{{url_for('static',filename='Registro.png')}}" alt="" width="50px" height="50px" class="registro">
+            Registro medico: <input type="text" name="rm">
+        </p>
+        <p>
+            <div class="custom_select">
+                <img src="{{url_for('static',filename='Especialidad.png')}}" alt="" width="50px" height="50px" class="especialidad">
+                <strong>Especialidad: </strong> 
+                <select name="es">
+                    {% for especialidad in especialidades %}
+                        <option>{{especialidad}}</option>        
+                    {% endfor %}
+                </select>
+                <span class="flecha"></span>
+            </div>
+        </p>
+        <div class="actualizar">
+            <button type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                                fill="currentColor"
+                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <span>Crear</span>
+            </button>
+        </div>
     </form>
+</div>
 </body>
 </html>
