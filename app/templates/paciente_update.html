@@ -10,7 +10,7 @@
 <div class="contorno">
         <h1 class="titulo">Actualizar Paciente</h1>
     <div >
-        <form method="post" action="/paciente/update/{{paciente_update.id}}">
+        <form method="post" action="/pacientes/update/{{paciente_update.id}}">
             <p>
                 <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
                 Nombre: <input type="text" name="nombre" value="{{paciente_update.nombre}}">
@@ -60,7 +60,7 @@
                 <div class="custom_select">
                     <img src="{{url_for('static',filename='Sangre.png')}}" alt="" width="50px" height="50px" class="sangre">
                     <strong>Tipo Sangre: </strong>     
-                    <select name="es">
+                    <select name="ts">
                         {% for tipo_sangre in tipo_sangre %}
                             <option
                                 {% if paciente_update.tipo_sangre == tipo_sangre %} 
