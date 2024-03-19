@@ -13,8 +13,8 @@ body{
     background-color: #FFFFFF;
     display: block;
     top: 12%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/   
-    left: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
-    right: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    left: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
     position: absolute;
     flex-direction: column;
     border-radius: 10px;
@@ -74,6 +74,19 @@ img[class="especialidad"]{
     padding-right: 10px;
     padding-left: 8px;  
 }
+
+img[class="altura"]{
+    vertical-align: -36%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
+img[class="sangre"]{
+    vertical-align: -36%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
 
 li{
     padding-bottom: 30px;

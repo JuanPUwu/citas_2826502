@@ -4,37 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista pacientes</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_table.css')}}">
 </head>
 <body>
+<div class="contorno_pacientes">
     <!--Pacientes-->
-    <h1 class="">Lista Pacientes</h1>
-    <table class="">
-        <thead>
-            <tr></tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Tipo identificacion</th>
-                <th>Numero identificacion</th>
-                <th>Altura</th>
-                <th>Tipo sangre</th>
-                <th>Ver detalles</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for paciente in pacientes %}
-                <tr>
-                    <td>{{paciente.nombre}}</td>
-                    <td>{{paciente.apellido}}</td>
-                    <td>{{paciente.tipo_identificacion}}</td>
-                    <td>{{paciente.numero_identificacion}}</td>
-                    <td>{{paciente.altura}}</td>
-                    <td>{{paciente.tipo_sangre}}</td>
-                    <td><a href="/pacientes/{{paciente.id}}" class="badge badge-primary">Ver detalles</a></td>
+    <div class="titulo">
+        <h1 class="">Lista Pacientes</h1>
+    </div>
+    <div class="contenido">
+        <table class="tabla">
+            <thead>
+                <tr></tr>
+                    <th class="encabezado">Nombre</th>
+                    <th class="encabezado">Apellido</th>
+                    <th class="encabezado">Tipo identificacion</th>
+                    <th class="encabezado">Numero identificacion</th>
+                    <th class="encabezado">Altura</th>
+                    <th class="encabezado">Tipo sangre</th>
+                    <th class="encabezado">Ver detalles</th>
+                    <th class="encabezado">Actualizar</th>
+                    <th class="encabezado">Eliminar</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot></tfoot>
-    </table>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                    <tr>
+                        <td class="con_tabla">{{paciente.nombre}}</td>
+                        <td class="con_tabla">{{paciente.apellido}}</td>
+                        <td class="con_tabla">{{paciente.tipo_identificacion}}</td>
+                        <td class="con_tabla">{{paciente.numero_identificacion}}</td>
+                        <td class="con_tabla">{{paciente.altura}}</td>
+                        <td class="con_tabla">{{paciente.tipo_sangre}}</td>
+                        <td class="con_tabla">
+                            <a href="/pacientes/{{paciente.id}}" class="link">
+                                <img src="{{url_for('static',filename='Detalles.png')}}" alt="" width="25px" height="20px" class="detalles">
+                                Ver detalles
+                            </a>
+                        </td>
+                        <td class="con_tabla">
+                            <a href="/pacientes/update/{{paciente.id}}" class="link">
+                                <img src="{{url_for('static',filename='Actualizar.png')}}" alt="" width="20px" height="20px" class="actualizar">
+                                Actualizar
+                            </a>
+                        </td>
+                        <td class="con_tabla">
+                            <a href="/pacientes/delete/{{paciente.id}}" class="link">
+                            <img src="{{url_for('static',filename='Basura.png')}}" alt="" width="20px" height="20px" class="basura">
+                            Eliminar</a></td>                    
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td class="con_tabla" colspan="9">
+                        <a href="{{ url_for('create_paciente') }}" class="link"><!--VINCULAR MEDIANTE URL SIN ROUTE-->
+                            <img src="{{url_for('static',filename='Mas.png')}}" alt="" width="20px" height="20px" class="mas">
+                            Crear Nuevo
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
 </body>
 </html>

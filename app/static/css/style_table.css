@@ -22,6 +22,32 @@ body{
     padding-top: 10px;
     box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
 }
+.contorno_medicos{
+    background-color: #FFFFFF;
+    display: block;
+    top: 20%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/   
+    left: 12%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 12%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    position: absolute;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 10px;
+    box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
+}
+.contorno_pacientes{
+    background-color: #FFFFFF;
+    display: block;
+    top: 20%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/   
+    left: 10%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 10%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    position: absolute;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 10px;
+    box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
+}
 
 .titulo{
     display: flex;

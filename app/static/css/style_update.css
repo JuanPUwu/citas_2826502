@@ -13,8 +13,8 @@ body{
     background-color: #FFFFFF;
     display: block;
     top: 1%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/
-    left: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
-    right: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    left: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
     position: absolute;
     border-radius: 10px;
     padding: 30px;
@@ -75,7 +75,7 @@ p{
 
 /*    BOTON   */
 .actualizar{
-    padding-left: 180px;
+    padding-left: 100px;
     padding-top: 4px;
     padding-bottom: 0px;
 }

@@ -68,14 +68,26 @@ img[class="especialidad"]{
     padding-left: 8px;  
 }
 
+img[class="sangre"]{
+    vertical-align: -36%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
+img[class="altura"]{
+    vertical-align: -36%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
 p{
     padding-bottom: 0px;
     font-weight: bold;
 }
 
 /*    BOTON   */
-.actualizar{
-    padding-left: 180px;
+.crear{
+    padding-left: 100px;
     padding-top: 4px;
     padding-bottom: 0px;
 }

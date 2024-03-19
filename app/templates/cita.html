@@ -4,14 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paciente</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_list.css')}}">
 </head>
-<body>
-    <h1>Informacion cita</h1>
-    <ul>
-        <li>Paciente: {{cit.paciente.nombre}}</li>
-        <li>Medico: {{cit.medico.nombre}}</li>
-        <li>Consultorio: {{cit.consultorio.numero}}</li>
-        <li>Valor: {{cit.valor}}</li>
+<div class="contorno">
+    <h1 class="titulo">Informacion Cita</h1>
+    <ul class="item_lista">
+        <li>
+            <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
+            <strong>
+                fecha: 
+            </strong>
+            {{cit.fecha}}
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
+            <strong>
+                Paciente: 
+            </strong>
+            {{cit.paciente.nombre}}
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='Apellido.png')}}" alt="" width="50px" height="50px" class="apellido">
+            <strong>
+                Medico: 
+            </strong>
+            {{cit.medico.nombre}}
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='Identificacion.png')}}" alt="" width="50px" height="50px" class="identificacion">
+            <strong>
+                Consultorio: 
+            </strong>
+            {{cit.consultorio.numero}}</li>
+        <li>
+            <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
+            <strong>
+                valor: 
+            </strong>
+            {{cit.valor}}</li>
+
     </ul>
+</div>
+
 </body>
 </html>

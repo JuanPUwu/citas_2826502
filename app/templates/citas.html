@@ -4,33 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista citas</title>
-    <link href="">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_table.css')}}">
 </head>
-<body>
-    <!--Citas-->
-    <h1 class="text-center">Lista Citas</h1>
-    <table class="table table-dark">
+<body> <!--Citas-->
+    <div class="contorno">
+        <div class="titulo">
+            <h1 class="text_titulo">Lista Citas</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class=flashes>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+        </div>
+    
+        <div class="contenido">
+            <table class="tabla">
         <thead>
             <tr>
-                <th>Fecha</th>
-                <th>Paciente</th>
-                <th>Medico</th>
-                <th>Consultorio</th>
-                <th>Valor</th>
-                <th>Ver detalles</th>
+                <th class="encabezado">Fecha</th>
+                <th class="encabezado">Paciente</th>
+                <th class="encabezado">Medico</th>
+                <th class="encabezado">Consultorio</th>
+                <th class="encabezado">Valor</th>
+                <th class="encabezado">Ver detalles</th>
+                <th class="encabezado">Actualizar</th>
+                <th class="encabezado">Eliminar</th>
             </tr>
         </thead>
         <tbody>
             {% for cita in citas %}
                 <tr>
-                    <td>{{cita.fecha}}</td>
-                    <td>{{cita.paciente_id}}</td>
-                    <td>{{cita.medico_id}}</td>
-                    <td>{{cita.consultorio_id}}</td>
-                    <td>{{cita.valor}}</td>
-                    <td><a href="/citas/{{cita.id}}">Ver detalles</a></td>
+                    <td class="con_tabla">{{cita.fecha}}</td>
+                    <td class="con_tabla">{{cita.paciente_id}}</td>
+                    <td class="con_tabla">{{cita.medico_id}}</td>
+                    <td class="con_tabla">{{cita.consultorio_id}}</td>
+                    <td class="con_tabla">{{cita.valor}}</td>
+                    <td>
+                    <a href="/citas/{{cita.id}}" class="link">
+                        <img src="{{url_for('static',filename='Detalles.png')}}" alt="" width="25px" height="20px" class="detalles">
+                        Ver Detalles
+                    </a>
+                </td>
+                <td class="con_tabla">
+                    <a href="/citas/update/{{cita.id}}" class="link">
+                        <img src="{{url_for('static',filename='Actualizar.png')}}" alt="" width="20px" height="20px" class="actualizar">
+                        Actualizar
+                    </a>
+                </td>
+                <td class="con_tabla">
+                    <a href="/citas/delete/{{cita.id}}" class="link">
+                        <img src="{{url_for('static',filename='Basura.png')}}" alt="" width="20px" height="20px" class="basura">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
                 </tr>
             {% endfor %}
+            <tr>
+                <td class="con_tabla" colspan="9">
+                    <a href="{{ url_for('create_citas') }}" class="link"><!--VINCULAR MEDIANTE URL SIN ROUTE-->
+                        <img src="{{url_for('static',filename='Mas.png')}}" alt="" width="20px" height="20px" class="mas">
+                        Crear Nuevo
+                    </a>
+                </td>
+            </tr>
         </tbody>
         <tfoot></tfoot>
     </table>
