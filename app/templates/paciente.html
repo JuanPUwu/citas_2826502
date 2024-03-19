@@ -8,27 +8,42 @@
 </head>
 <body>
 <div class="contorno">
-    <h1 class="text-center">Informacion Paciente</h1>
+    <h1 class="titulo">Informacion Paciente</h1>
     <ul class="item_lista">
-        <li class="list-group-item">
+        <li>
             <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
-            Nombre: {{pac.nombre}}
+            <strong>
+                Nombre: 
+            </strong>
+            {{pac.nombre}}
         </li>
-        <li class="list-group-item">
+        <li>
             <img src="{{url_for('static',filename='Apellido.png')}}" alt="" width="50px" height="50px" class="apellido">
-            Apellido: {{pac.apellido}}
+            <strong>
+                Apellido: 
+            </strong>
+            {{pac.apellido}}
         </li>
-        <li class="list-group-item">
+        <li>
             <img src="{{url_for('static',filename='Identificacion.png')}}" alt="" width="50px" height="50px" class="identificacion">
-            Tipo identificacion: {{pac.tipo_identificacion}}
+            <strong>
+                Tipo Identificacion:
+            </strong>
+            {{pac.tipo_identificacion}}
         </li>
-        <li class="list-group-item">
+        <li>
             <img src="{{url_for('static',filename='Altura.png')}}" alt="" width="50px" height="50px" class="altura">
-            Altura: {{pac.altura}}
+            <strong>
+                Altura: 
+            </strong>
+            {{pac.altura}}
         </li>
-        <li class="list-group-item">
+        <li>
             <img src="{{url_for('static',filename='Sangre.png')}}" alt="" width="50px" height="50px" class="sangre">
-            Tipo Sangre: {{pac.tipo_sangre}}
+            <strong>
+                Tipo Sangre:
+            </strong> 
+            {{pac.tipo_sangre}}
         </li>
     </ul>
 </div>

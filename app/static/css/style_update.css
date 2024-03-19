@@ -15,12 +15,28 @@ body{
     top: 1%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/
     left: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
     right: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    bottom: 1%;
     position: absolute;
     border-radius: 10px;
     padding: 30px;
     padding-top: 0px;
     box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
 }
+
+.contorno_consultorio{
+    background-color: #FFFFFF;
+    display: inline-block;
+    top: 20%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/
+    left: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 30%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    bottom: 43%;
+    position: fixed;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 0px;
+    box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
+}
+
 
 .titulo{
     display: flex;
@@ -68,6 +84,18 @@ img[class="especialidad"]{
     padding-left: 8px;  
 }
 
+img[class="altura"]{
+    vertical-align: -30%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
+img[class="sangre"]{
+    vertical-align: -30%;
+    padding-right: 10px;
+    padding-left: 8px;  
+}
+
 p{
     padding-bottom: 0px;
     font-weight: bold;
@@ -75,9 +103,9 @@ p{
 
 /*    BOTON   */
 .actualizar{
-    padding-left: 100px;
-    padding-top: 4px;
-    padding-bottom: 0px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 button{

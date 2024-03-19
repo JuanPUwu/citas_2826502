@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultorio</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_list.css')}}">
 </head>
 <body>
-    <h1>Informacion consultorio</h1>
-    <ul>
-        <li>Numero: {{con.numero}}</li>
+<div class="contorno_cons">
+    <h1 class="titulo">Informacion consultorio</h1>
+    <ul class="item_lista">
+        <li>
+            <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
+            <strong>
+                Numero: 
+            </strong>
+            {{con.numero}}</li>
+        <li>
     </ul>
+</div>
 </body>
 </html>

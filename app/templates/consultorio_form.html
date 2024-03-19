@@ -4,18 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario consultorios</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_create.css')}}">
 </head>
 <body>
-    <h1>Nuevo consultorio</h1>
+<div class="contorno_form">
+    <h1 class="titulo">Nuevo consultorio</h1>
     <form method="post">
-        <p> Numero de consultorio
-            <select name="nu">
-                {% for numero in numeros %}
-                    <option>{{numero}}</option>        
-                {% endfor %}
-            </select>
+        <p> 
+            <div class="custom_select">
+                <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
+                <strong>Numero de consultorio</strong>
+                <select name="numero">
+                    {% for numero in numeros %}
+                        <option>{{numero}}</option>        
+                    {% endfor %}
+                </select>
+                <span class="flecha"></span>
+            </div>
         </p>
-        <p><button type="submit">Guardar</button></p>
+        <div class="crear">
+            <button type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                                fill="currentColor"
+                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <span>Crear</span>
+            </button>
+        </div>
     </form>
+    </form>
+</div>
 </body>
 </html>

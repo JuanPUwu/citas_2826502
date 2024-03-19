@@ -52,7 +52,7 @@
                 <input type="text" name="ni" value="{{paciente_update.numero_identificacion}}">
             </p>
             <p>
-                <img src="{{url_for('static',filename='Altura.png')}}" alt="" width="50px" height="50px" class="sangre">
+                <img src="{{url_for('static',filename='Altura.png')}}" alt="" width="50px" height="50px" class="altura">
                 Altura: 
                 <input type="text" name="al" value="{{paciente_update.altura}}">
             </p>
@@ -69,6 +69,7 @@
                             >{{tipo_sangre}}</option>        
                         {% endfor %}
                     </select>
+                    <span class="flecha"></span>
                 </div>
             </p>
             <div class="actualizar">

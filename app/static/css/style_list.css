@@ -24,6 +24,21 @@ body{
     box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
 }
 
+.contorno_cons{
+    background-color: #FFFFFF;
+    display: block;
+    top: 25%;/*AJUSTA EL POSICIONAMINETO SEGUN EL TECHO*/   
+    left: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN IZQUIERDA*/
+    right: 35%;/*AJUSTA EL POSICIONAMINETO SEGUN DRECHA*/
+    position: absolute;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    box-shadow: 0px 0px 8px rgba(46, 46, 46, 0.1);
+}
+
 .titulo{
     display: flex;
     position: relative;

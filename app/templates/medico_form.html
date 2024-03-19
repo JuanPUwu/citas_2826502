@@ -12,11 +12,11 @@
     <form method="post" action="">
         <p>
             <img src="{{url_for('static',filename='Nombre.png')}}" alt="" width="50px" height="50px" class="nombre">
-            Nombre: <input type="text" name="nombre">
+            Nombre: <input type="text" name="nombre" placeholder="Nombre...">
         </p>
         <p>
             <img src="{{url_for('static',filename='Apellido.png')}}" alt="" width="50px" height="50px" class="apellido">
-            Apellido: <input type="text" name="apellido">
+            Apellido: <input type="text" name="apellido" placeholder="Apellido...">
         </p>
         <p>
             <div class="custom_select">
@@ -32,11 +32,11 @@
         </p>
         <p>
             <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
-            Numero Identidad: <input type="text" name="ni">
+            Numero Identidad: <input type="text" name="ni" placeholder="Numero...">
         </p>
         <p>
             <img src="{{url_for('static',filename='Registro.png')}}" alt="" width="50px" height="50px" class="registro">
-            Registro medico: <input type="text" name="rm">
+            Registro medico: <input type="text" name="rm" placeholder="Resgistro...">
         </p>
         <p>
             <div class="custom_select">
@@ -50,7 +50,7 @@
                 <span class="flecha"></span>
             </div>
         </p>
-        <div class="actualizar">
+        <div class="crear">
             <button type="submit">
                 <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
