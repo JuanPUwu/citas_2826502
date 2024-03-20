@@ -39,9 +39,9 @@
             {% for cita in citas %}
                 <tr>
                     <td class="con_tabla">{{cita.fecha}}</td>
-                    <td class="con_tabla">{{cita.paciente_id}}</td>
-                    <td class="con_tabla">{{cita.medico_id}}</td>
-                    <td class="con_tabla">{{cita.consultorio_id}}</td>
+                    <td class="con_tabla">{{cita.paciente.nombre}} {{cita.paciente.apellido}}</td>
+                    <td class="con_tabla">{{cita.medico.nombre}} {{cita.medico.apellido}}</td>
+                    <td class="con_tabla">{{cita.consultorio.numero}}</td>
                     <td class="con_tabla">{{cita.valor}}</td>
                     <td>
                     <a href="/citas/{{cita.id}}" class="link">
@@ -66,7 +66,7 @@
             {% endfor %}
             <tr>
                 <td class="con_tabla" colspan="9">
-                    <a href="{{ url_for('create_citas') }}" class="link"><!--VINCULAR MEDIANTE URL SIN ROUTE-->
+                    <a href="{{ url_for('create_cita') }}" class="link"><!--VINCULAR MEDIANTE URL SIN ROUTE-->
                         <img src="{{url_for('static',filename='Mas.png')}}" alt="" width="20px" height="20px" class="mas">
                         Crear Nuevo
                     </a>

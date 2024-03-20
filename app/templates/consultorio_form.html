@@ -14,11 +14,7 @@
             <div class="custom_select">
                 <img src="{{url_for('static',filename='Numero.png')}}" alt="" width="50px" height="50px" class="numero">
                 <strong>Numero de consultorio</strong>
-                <select name="numero">
-                    {% for numero in numeros %}
-                        <option>{{numero}}</option>        
-                    {% endfor %}
-                </select>
+                <input type="number" max="30" min="1" name="numero">
                 <span class="flecha"></span>
             </div>
         </p>

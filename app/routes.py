@@ -141,53 +141,26 @@ def create_paciente():
 
 
 #CREAR RUTA PARA CREAR NUEVO CONSULTORIO
-@app.route("/consultorios/create", methods = ["GET","POST"])
+@app.route("/consultorios/create" , methods = [ "GET" , "POST"] )
 def create_consultorio():
-    if(request.method == "GET" ):
-        numeros = [
-            "Seleccionar...",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"
-        ]
-        return render_template("consultorio_form.html",
-                            numeros = numeros)
+    ####### mostrar el formulario : get ###########
+    if( request.method == "GET" ):
+        numero = Consultorio.query.all()
+        return render_template("consultorio_form.html", numero = numero)
+#### Cuando el usuario presiona el boton de guardar#####
+#### los datos del formulario viajan al servidor
     elif(request.method == "POST"):
-        new_consultorio = Consultorio(numero = request.form["numero"])
-        db.session.add(new_consultorio)
-        db.session.commit()
-        return redirect("/consultorios")
+        #el usuario ingreso con navegador con https://localhost.....
+        numero = int(request.form["numero"])
+        new_consultorio = Consultorio( numero = request.form["numero"])                            
+        #añadirlo a la sesion sqlalchemy
+    db.session.add(new_consultorio)
+    db.session.commit()
+    flash('Consultorio creado')
+    return redirect('/consultorios')
 
 
-#CREAR RUTA PARA CREAR NUEVA CITA
-@app.route("/citas/create", methods = ["GET","POST"])
-def create_cita():
-    if(request.method == "GET" ):
-        fecha = [
-            datetime(2024,9,12,14,45,0),
-            datetime(2024,8,8,15,15,0),
-            datetime(2024,2,15,16,15,0),
-            datetime(2024,1,28,8,45,0),
-            datetime(2024,12,30,7,0,0),
-        ]
-        return render_template("citas_form.html",
-                            citas = fecha)
-    elif(request.method == "POST"):
-        new_cita = Cita(fecha = request.form["fe"],
-                        paciente_id = request.form["pi"],
-                        medico_id = request.form["mi"],
-                        consultorio_id = request.form["ci"],
-                        valor = request.form["va"])
-        db.session.add(new_cita)
-        db.session.commit()
-        return "Cita registrada"
+
 
 #
 #
@@ -233,24 +206,10 @@ def delete_medico(id):
 #ACTUALIZAR DATOS CONSULTORIO
 @app.route("/consultorios/update/<int:id>", methods = ["POST", "GET"])
 def update_consultorio(id):
-    numeros = [
-            "Seleccionar...",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"
-        ]
     consultorio_update = Consultorio.query.get(id)
     if(request.method == "GET"):
         return render_template("consultorio_update.html",
-                                consultorio_update = consultorio_update,
-                                numeros = numeros)
+                                consultorio_update = consultorio_update)
     elif(request.method == "POST"):
         #ACTUALIZAR MEDICO CON DATOS DE FORMULARIO
         consultorio_update.numero = request.form["numero"]
@@ -302,4 +261,63 @@ def delete_paciente(id):
     db.session.commit()
     return redirect("/pacientes")
 
+#--------------------------------------------------------------------------------------------------------------------#
+#CREAR RUTA PARA CREAR NUEVA CITA
+@app.route("/citas/create", methods = ["GET","POST"])
+def create_cita():
+    if(request.method == "GET" ):
+        valores = [
+           4500,
+            0,
+            20000]
+        fecha = datetime.now()
+        pacientes = Paciente.query.all()
+        medicos = Medico.query.all()
+        consultorios = Consultorio.query.all()
+        return render_template('citas_form.html' , fecha = fecha, valores = valores, pacientes = pacientes, medicos = medicos, consultorios = consultorios)
+    elif(request.method == "POST"):
+        new_cita = Cita(fecha = datetime.strptime(request.form['fe'], "%Y-%m-%dT%H:%M"),
+                        paciente_id = request.form["pa"],
+                        medico_id = request.form["med"],
+                        consultorio_id = request.form["con"],
+                        valor = request.form["val"])
+        db.session.add(new_cita)
+        db.session.commit()
+        flash('Cita Creada')
+        return redirect('/citas')
+
+#Actualizar Citas
+@app.route("/citas/update/<int:id>", methods = ["GET","POST"])
+def update_cita(id):
+    valores = [
+           4500,
+            0,
+            20000]
+    cita_update = Cita.query.get(id)
+    if(request.method == "GET" ):
+        pacientes = Paciente.query.all()
+        medicos = Medico.query.all()
+        consultorios = Consultorio.query.all()
+        
+        return render_template("citas_form.html",
+                            cita_update = cita_update, 
+                                valores = valores, pacientes = pacientes, medicos = medicos, consultorios = consultorios)
+    elif(request.method == "POST"):
+        cita_update.fecha = datetime.strptime(request.form['fe'], "%Y-%m-%dT%H:%M")
+        cita_update.paciente_id = request.form['pa']
+        cita_update.medico_id = request.form['med']
+        cita_update.consultorio_id = request.form['con']
+        cita_update.valor = request.form['val']
+        db.session.commit()
+        flash('Cita Actualizado')
+        return redirect('/citas')
+
+#Eliminar Cita 
+@app.route('/citas/delete/<int:id>', methods=['GET','POST'])
+def delete_cita(id):
+    cita_delete = Cita.query.get(id)
+    db.session.delete(cita_delete)
+    db.session.commit()
+    flash('Cita Eliminado')
+    return redirect('/citas')
 
